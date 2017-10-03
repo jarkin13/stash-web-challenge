@@ -14,11 +14,7 @@ class Gifs extends Component {
     }
 
     return (
-      <div className="Gifs">
-        <div className="row">
-          {gifItems}
-        </div>
-      </div>
+      <ul className="gifs">{gifItems}</ul>
     );
   }
 }
