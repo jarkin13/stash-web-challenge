@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 
 class SearchGifs extends Component {
-  constructor(){
-    super();
-    this.state = {
-      text: '',
-      endpoint: ''
-    }
-  }
-
   handleInputChange(text){
     let endpoint = 'search';
     if(text === '')
