@@ -22,6 +22,7 @@ class App extends Component {
     const RATING = 'pg';
 
     let url = `${BASE_URL}${this.state.endpoint}?q=${this.state.text}&offset=${this.state.offset}&rating=${RATING}&limit=${LIMIT}&api_key=${PUBLIC_KEY}`;
+
     request.get(url, function(err, res) {
       _this.setState({ gifs: res.body.data })
       console.log(_this.state);
