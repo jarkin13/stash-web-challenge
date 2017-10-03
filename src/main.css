@@ -5551,3 +5551,18 @@ a.text-dark:focus, a.text-dark:hover {
 
 .invisible {
   visibility: hidden !important; }
+
+.container .item {
+  padding-bottom: 5px; }
+
+.container .item, .container .grid-sizer {
+  width: 50%;
+  padding: 5px; }
+  .container .item img, .container .grid-sizer img {
+    width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .container .item, .container .grid-sizer {
+      width: 33.333333333%; } }
+  @media only screen and (min-width: 992px) {
+    .container .item, .container .grid-sizer {
+      width: 25%; } }
