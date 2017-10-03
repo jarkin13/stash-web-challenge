@@ -34,7 +34,7 @@ class App extends Component {
   getGifs() {
     const PUBLIC_KEY = 'GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw';
     const BASE_URL = '//api.giphy.com/v1/gifs/';
-    const LIMIT = 20;
+    const LIMIT = 25;
     const RATING = 'pg';
 
     $.ajax({
