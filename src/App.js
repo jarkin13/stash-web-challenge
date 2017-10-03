@@ -12,6 +12,7 @@ class App extends Component {
       offset: 0,
       gifs: []
     }
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentWillMount() {
@@ -20,6 +21,11 @@ class App extends Component {
 
   componentDidMount() {
     this.getGifs();
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 
   handleSearchGifs(search) {
@@ -31,18 +37,52 @@ class App extends Component {
     });
   }
 
+  handleScroll() {
+    const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+    const body = document.body;
+    const html = document.documentElement;
+    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+    const windowBottom = windowHeight + window.pageYOffset;
+
+    let offset = this.state.offset;
+
+    if(this.state.offset > 500) {
+      return;
+    }
+
+    if (windowBottom >= docHeight) {
+      this.setState({
+        offset: offset + 25
+      }, function() {
+        console.log('bottom');
+        this.getGifs()
+      });
+    }
+  }
+
   getGifs() {
+    const _this = this;
     const PUBLIC_KEY = 'GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw';
     const BASE_URL = '//api.giphy.com/v1/gifs/';
     const LIMIT = 25;
     const RATING = 'pg';
 
+    let request = `${BASE_URL}${this.state.endpoint}?q=${this.state.text}&offset=${this.state.offset}&rating=${RATING}&limit=${LIMIT}&api_key=${PUBLIC_KEY}`;
+    let gifs = [];
+    console.log(request);
+    if(this.state.offset > 0)
+      gifs = this.state.gifs;
+
     $.ajax({
-      url: `${BASE_URL}${this.state.endpoint}?q=${this.state.text}&offset=${this.state.offset}&rating=${RATING}&limit=${LIMIT}&api_key=${PUBLIC_KEY}`,
+      url: request,
       dataType: 'json',
       cache: false,
       success: function(data) {
-        this.setState({gifs: data.data}, function() {
+        data.data.map(gif => {
+          gifs.push(gif)
+        });
+
+        this.setState({gifs: gifs}, function() {
           console.log(this.state);
         });
       }.bind(this),
@@ -52,7 +92,9 @@ class App extends Component {
     });
   }
 
+
   render() {
+    console.log(this.state);
     return (
       <div className="App">
         <div className="container">
