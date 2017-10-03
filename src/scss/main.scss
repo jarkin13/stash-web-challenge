@@ -1,11 +1,7 @@
 @import 'bootstrap/scss/bootstrap.scss';
 
-
-
-
 .gifs {
   column-gap: 1.5em;
-  font-size: .85em;
   margin: 1.5em 0;
   padding: 0;
 
@@ -14,7 +10,6 @@
     box-sizing: border-box;
     display: inline-block;
     margin: 0 0 1.5em;
-    padding: 1em;
     width: 100%;
 
     img { width: 100%; }
@@ -36,11 +31,5 @@
     -moz-column-count: 4;
     -webkit-column-count: 4;
     column-count: 4;
-  }
-
-  @media only screen and (min-width: 1100px) {
-    -moz-column-count: 5;
-    -webkit-column-count: 5;
-    column-count: 5;
   }
 }

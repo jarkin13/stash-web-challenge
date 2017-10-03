@@ -5554,7 +5554,6 @@ a.text-dark:focus, a.text-dark:hover {
 
 .gifs {
   column-gap: 1.5em;
-  font-size: .85em;
   margin: 1.5em 0;
   padding: 0; }
   .gifs .gif-item {
@@ -5562,7 +5561,6 @@ a.text-dark:focus, a.text-dark:hover {
     box-sizing: border-box;
     display: inline-block;
     margin: 0 0 1.5em;
-    padding: 1em;
     width: 100%; }
     .gifs .gif-item img {
       width: 100%; }
@@ -5581,8 +5579,3 @@ a.text-dark:focus, a.text-dark:hover {
       -moz-column-count: 4;
       -webkit-column-count: 4;
       column-count: 4; } }
-  @media only screen and (min-width: 1100px) {
-    .gifs {
-      -moz-column-count: 5;
-      -webkit-column-count: 5;
-      column-count: 5; } }
