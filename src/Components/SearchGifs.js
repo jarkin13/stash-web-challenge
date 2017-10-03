@@ -14,12 +14,7 @@ class SearchGifs extends Component {
     if(text === '')
       endpoint = 'trending';
 
-    this.setState({
-      text: text,
-      endpoint: endpoint
-    }, function() {
-     this.props.onTextChange(text, endpoint);
-    });
+    this.props.onTextChange(text, endpoint);
   }
 
   render() {
