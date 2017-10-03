@@ -18,7 +18,7 @@ class App extends Component {
     const BASE_URL = '//api.giphy.com/v1/gifs/';
     const LIMIT = 20;
     const RATING = 'pg';
-
+    console.log(`${BASE_URL}${this.state.endpoint}?q=${this.state.text}&offset=${this.state.offset}&rating=${RATING}&limit=${LIMIT}&api_key=${PUBLIC_KEY}`);
     $.ajax({
       url: `${BASE_URL}${this.state.endpoint}?q=${this.state.text}&offset=${this.state.offset}&rating=${RATING}&limit=${LIMIT}&api_key=${PUBLIC_KEY}`,
       dataType: 'json',
@@ -45,7 +45,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        testing
+        <Gifs gifs={this.state.gifs} />
       </div>
     );
   }
