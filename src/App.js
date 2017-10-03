@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import Gifs from './Components/Gifs';
 
 class App extends Component {
   constructor() {
@@ -16,9 +17,10 @@ class App extends Component {
     const PUBLIC_KEY = 'GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw';
     const BASE_URL = '//api.giphy.com/v1/gifs/';
     const LIMIT = 20;
+    const RATING = 'pg';
 
     $.ajax({
-      url: `${BASE_URL}${this.state.endpoint}?q=${this.state.text}&offset=${this.state.offset}&limit=${LIMIT}&api_key=${PUBLIC_KEY}`,
+      url: `${BASE_URL}${this.state.endpoint}?q=${this.state.text}&offset=${this.state.offset}&rating=${RATING}&limit=${LIMIT}&api_key=${PUBLIC_KEY}`,
       dataType: 'json',
       cache: false,
       success: function(data) {
