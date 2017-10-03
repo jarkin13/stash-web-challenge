@@ -13,13 +13,22 @@ class GifItem extends Component {
     let width = this.props.gif.images.downsized.width;
     let height = this.props.gif.images.downsized.height;
     let maxImageWidth = this.props.maxImageWidth;
-    let divHeight = this.getImageHeight(width, height, maxImageWidth);
-    let styles = {
-      height: divHeight + 'px'
+
+    let imageHeight = this.getImageHeight(width, height, maxImageWidth);
+    let divStyles = {
+      height: imageHeight + 'px'
     };
 
+    let placeholderHeight = imageHeight - 10;
+    let placeholderStyles = {
+      width: maxImageWidth + 'px',
+      height: placeholderHeight + 'px',
+      backgroundColor: 'rgb(154, 207, 255)'
+    }
+
     return (
-      <div className="item" key={this.props.order} style={styles}>
+      <div className="item" key={this.props.order} style={divStyles}>
+        <div className="placeholder" style={placeholderStyles}></div>
         <img src={this.props.gif.images.downsized.url} ref="gif" className="gif-image" alt="gif" />
       </div>
     );
