@@ -28,10 +28,10 @@ class App extends Component {
     window.removeEventListener("scroll", this.handleScroll);
   }
 
-  handleSearchGifs(search) {
+  handleSearchGifs(text, endpoint) {
     this.setState({
-      text: search.text,
-      endpoint: 'search'
+      text: text,
+      endpoint: endpoint
     }, function() {
       this.getGifs()
     });
@@ -54,7 +54,6 @@ class App extends Component {
       this.setState({
         offset: offset + 25
       }, function() {
-        console.log('bottom');
         this.getGifs()
       });
     }
@@ -69,7 +68,7 @@ class App extends Component {
 
     let request = `${BASE_URL}${this.state.endpoint}?q=${this.state.text}&offset=${this.state.offset}&rating=${RATING}&limit=${LIMIT}&api_key=${PUBLIC_KEY}`;
     let gifs = [];
-    console.log(request);
+
     if(this.state.offset > 0)
       gifs = this.state.gifs;
 
@@ -94,11 +93,10 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state);
     return (
       <div className="App">
         <div className="container">
-          <SearchGifs searchGifs={this.handleSearchGifs.bind(this)} />
+          <SearchGifs onTextChange={this.handleSearchGifs.bind(this)} />
           <Gifs gifs={this.state.gifs} />
         </div>
       </div>
