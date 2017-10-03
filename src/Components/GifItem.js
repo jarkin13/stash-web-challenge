@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class GifItem extends Component {
   render() {
     return (
-      <div className="card">
-        <img src={this.props.gif.images.downsized.url} className="card-img-top img-fluid" alt="gif" />
+      <div className="item" key={this.props.order}>
+        <img src={this.props.gif.images.downsized.url} ref="gif" className="gif-image" data-height={this.props.gif.images.downsized.height} data-width={this.props.gif.images.downsized.width} alt="gif" />
       </div>
     );
   }

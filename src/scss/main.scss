@@ -1,1 +1,16 @@
 @import 'bootstrap/scss/bootstrap.scss';
+
+.item, .grid-sizer  {
+  width: 25%;
+  padding: 5px;
+
+  img { width: 100%; }
+
+  @media only screen and (max-width: 992px) {
+    width: 33.333333333%;
+  }
+
+  @media only screen and (max-width: 576px) {
+    width: 50%;
+  }
+}

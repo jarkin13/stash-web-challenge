@@ -9,6 +9,7 @@
     "npm-run-all": "^4.1.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-masonry-component": "^5.0.7",
     "react-scripts": "1.0.14"
   },
   "scripts": {
