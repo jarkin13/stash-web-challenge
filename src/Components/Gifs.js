@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import GifItem from './GifItem';
-var Masonry = require('react-masonry-component');
 
 class Gifs extends Component {
   render() {
@@ -14,25 +13,11 @@ class Gifs extends Component {
       });
     }
 
-    let masonryOptions = {
-      transitionDuration: 0,
-      itemSelector: '.item',
-      percentPosition: true,
-      columnWidth: '.grid-sizer',
-      horizontalOrder: true
-    };
-
     return (
       <div className="Gifs">
-        <Masonry
-          className={'masonry'}
-          options={masonryOptions}
-          disableImagesLoaded={false}
-          updateOnEachImageLoad={false}
-        >
-          <div className="grid-sizer"></div>
+        <div class="gif-container">
           {gifItems}
-        </Masonry>
+        </div>
       </div>
     );
   }
