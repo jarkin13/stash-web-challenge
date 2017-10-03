@@ -4,7 +4,7 @@ class GifItem extends Component {
   render() {
     return (
       <div className="item" key={this.props.order}>
-        <img src={this.props.gif.images.downsized.url} ref="gif" className="gif-image" data-height={this.props.gif.images.downsized.height} data-width={this.props.gif.images.downsized.width} alt="gif" />
+        <img src={this.props.gif.images.downsized.url} ref="gif" className="gif-image" alt="gif" />
       </div>
     );
   }
