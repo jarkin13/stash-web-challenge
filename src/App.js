@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Gifs from './Components/Gifs';
 import SearchGifs from './Components/SearchGifs';
 import request from 'superagent';
+import PropTypes from 'prop-types';
 
 class App extends Component {
   constructor() {
@@ -10,15 +11,23 @@ class App extends Component {
       text: '',
       endpoint: 'trending',
       offset: 0,
-      gifs: []
+      gifs: [],
     }
+  }
+
+  componentWillMount() {
+    this.renderGifs();
+  }
+
+  componentDidMount() {
+    this.renderGifs();
   }
 
   renderGifs() {
     const _this = this;
     const PUBLIC_KEY = 'GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw';
     const BASE_URL = '//api.giphy.com/v1/gifs/';
-    const LIMIT = 25;
+    const LIMIT = 30;
     const RATING = 'pg';
 
     let url = `${BASE_URL}${this.state.endpoint}?q=${this.state.text}&offset=${this.state.offset}&rating=${RATING}&limit=${LIMIT}&api_key=${PUBLIC_KEY}`;
