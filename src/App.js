@@ -25,7 +25,7 @@ class App extends Component {
     const _this = this;
     const PUBLIC_KEY = 'GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw';
     const BASE_URL = '//api.giphy.com/v1/gifs/';
-    const LIMIT = 30;
+    const LIMIT = 9;
     const RATING = 'pg';
 
     let url = `${BASE_URL}${this.state.endpoint}?q=${this.state.text}&offset=${this.state.offset}&rating=${RATING}&limit=${LIMIT}&api_key=${PUBLIC_KEY}`;
