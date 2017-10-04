@@ -60,9 +60,6 @@ class App extends Component {
     });
   }
 
-  //TODO on click scroll up
-  //TODO Masonry layout
-  //TODO styling on placeholder
   //TODO styling for searchbar and next button
   render() {
     return (
@@ -70,7 +67,6 @@ class App extends Component {
         <div className="container">
           <SearchGifs onTextChange={this.handleTextChange.bind(this)} loadMore={this.handleLoadMore.bind(this)}/>
           <Gifs gifs={this.state.gifs} changed={this.state.changed} />
-          <button className="btn btn-primary load-more" onClick={this.handleLoadMore.bind(this)}>Next</button>
         </div>
       </div>
     );
