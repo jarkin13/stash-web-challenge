@@ -23,7 +23,7 @@ class SearchGifs extends Component {
         <div className="form-inline">
           <div className="form-group">
             <label htmlFor="searchGifs" className="sr-only">Search</label><br />
-            <input type="text" className="form-control" ref="input" placeholder="Search" onChange={event => this.handleInputChange(event.target.value)}/>
+            <input type="text" className="form-control mr-2" ref="input" placeholder="Search" onChange={event => this.handleInputChange(event.target.value)}/>
           </div>
           <button type="submit" className="btn btn-primary" onClick={this.handleClick.bind(this)}>Search</button>
         </div>

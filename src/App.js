@@ -3,7 +3,6 @@ import Gifs from './Components/Gifs';
 import SearchGifs from './Components/SearchGifs';
 import request from 'superagent';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
 
 class App extends Component {
   constructor() {
@@ -66,19 +65,19 @@ class App extends Component {
 
       request.get(url, function(err, res) {
         res.body.data.map((gif) => {
-          gifs.push(gif);
+          return gifs.push(gif);
         });
         _this.setState({ gifs: gifs });
         console.log(_this.state.gifs);
       });
     });
   }
-
-  //TODO styling for searchbar and next button
+  
   render() {
     return (
       <div className="App">
         <div className="container">
+          <h1>Stash GIFs</h1>
           <SearchGifs onTextChange={this.handleTextChange.bind(this)} loadMore={this.handleLoadMore.bind(this)}/>
           <Gifs gifs={this.state.gifs} changed={this.state.changed} />
           <button className="btn btn-primary load-more" onClick={this.handleLoadMore.bind(this)}>Next</button>
