@@ -25,7 +25,7 @@ class GifItem extends Component {
     }
 
     return (
-      <div className='gif col-6 col-md-4 col-lg-3' key={this.props.order}>
+      <div className='gif col-6 col-md-4' key={this.props.order}>
         <div className={placeholder}></div>
         <a href={this.props.gif.url} target="_blank" className={imageClass}>
           <img src={this.props.gif.images.downsized.url} ref="gif" className="gif" alt="gif"
