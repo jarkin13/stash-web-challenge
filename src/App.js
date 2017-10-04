@@ -72,7 +72,7 @@ class App extends Component {
       });
     });
   }
-  
+
   render() {
     return (
       <div className="App">
@@ -80,7 +80,7 @@ class App extends Component {
           <h1>Stash GIFs</h1>
           <SearchGifs onTextChange={this.handleTextChange.bind(this)} loadMore={this.handleLoadMore.bind(this)}/>
           <Gifs gifs={this.state.gifs} changed={this.state.changed} />
-          <button className="btn btn-primary load-more" onClick={this.handleLoadMore.bind(this)}>Next</button>
+          <button className="btn btn-primary load-more" onClick={this.handleLoadMore.bind(this)}>More</button>
         </div>
       </div>
     );
