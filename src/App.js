@@ -77,7 +77,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container">
-          <h1>Stash GIFs</h1>
+          <h1>Search GIFs</h1>
           <SearchGifs onTextChange={this.handleTextChange.bind(this)} loadMore={this.handleLoadMore.bind(this)}/>
           <Gifs gifs={this.state.gifs} changed={this.state.changed} />
           <button className="btn btn-primary load-more" onClick={this.handleLoadMore.bind(this)}>More</button>
