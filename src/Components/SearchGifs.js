@@ -27,7 +27,6 @@ class SearchGifs extends Component {
           </div>
           <button type="submit" className="btn btn-primary" onClick={this.handleClick.bind(this)}>Search</button>
         </div>
-        <button className="btn btn-primary load-more" onClick={this.props.loadMore}>Next</button>
       </div>
     );
   }

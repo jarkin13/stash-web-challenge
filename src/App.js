@@ -67,6 +67,7 @@ class App extends Component {
         <div className="container">
           <SearchGifs onTextChange={this.handleTextChange.bind(this)} loadMore={this.handleLoadMore.bind(this)}/>
           <Gifs gifs={this.state.gifs} changed={this.state.changed} />
+          <button className="btn btn-primary load-more" onClick={this.handleLoadMore.bind(this)}>Next</button>
         </div>
       </div>
     );
