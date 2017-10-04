@@ -32,7 +32,7 @@ class App extends Component {
 
     request.get(url, function(err, res) {
       _this.setState({ gifs: res.body.data })
-      console.log(_this.state);
+      console.log(_this.state.gifs);
     });
   }
 
@@ -50,13 +50,27 @@ class App extends Component {
   }
 
   handleLoadMore() {
-    this.setState({gifs: []});
-    let offset = this.state.offset + 31;
+    let offset = this.state.offset + 10;
     this.setState({
       offset: offset,
       changed: true,
     }, function() {
-      this.renderGifs();
+      const _this = this;
+      const PUBLIC_KEY = 'GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw';
+      const BASE_URL = '//api.giphy.com/v1/gifs/';
+      const LIMIT = 9;
+      const RATING = 'pg';
+
+      let url = `${BASE_URL}${this.state.endpoint}?q=${this.state.text}&offset=${this.state.offset}&rating=${RATING}&limit=${LIMIT}&api_key=${PUBLIC_KEY}`;
+      let gifs = this.state.gifs;
+
+      request.get(url, function(err, res) {
+        res.body.data.map((gif) => {
+          gifs.push(gif);
+        });
+        _this.setState({ gifs: gifs });
+        console.log(_this.state.gifs);
+      });
     });
   }
 
